@@ -330,9 +330,15 @@ public class GameManager : MonoBehaviour
         #endregion
 
         //Draw condition
-        if ((totalBlueMedium == 0 && totaBlueLarge == 0) && (totalOrangeMedium == 0 && totaOrangeLarge == 0) || gameOver)
+        if (totalBlueMedium == 0 && totaBlueLarge == 0 && totalOrangeMedium == 0 && totaOrangeLarge == 0)
         {
-            onGameDraw?.Invoke();
+            for (int i = 0; i < gridElements.Length; i++) ;
+            {
+                if (gridElements[0].transform.GetChild(0).GetComponent<Pawn>().pawnColor != PawnColor.Empty)
+                {
+                    onGameDraw?.Invoke();
+                }
+            }           
         }
     }
 
@@ -365,9 +371,9 @@ public class GameManager : MonoBehaviour
     }
 
     //reduce remaining medium and large pawn count
-    public void ReduceRemainingPawns(PawnColor color,PawnSize size)
+    public void ReduceRemainingPawns(PawnColor color, PawnSize size)
     {
-        if(color == PawnColor.Blue && size==PawnSize.Medium)
+        if (color == PawnColor.Blue && size == PawnSize.Medium)
         {
             totalBlueMedium--;
         }
