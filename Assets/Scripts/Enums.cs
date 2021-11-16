@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
+//Enums Class
 
 public enum PawnSize
 {
     Small,
     Medium,
-    Large
+    Large,
 }
 
 public enum PawnColor
 {
     Blue,
-    Orange
+    Orange,
+    Empty
 }
