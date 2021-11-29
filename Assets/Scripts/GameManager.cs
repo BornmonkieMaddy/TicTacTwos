@@ -364,10 +364,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void QuitEditor()
+    /*public void QuitEditor()
     {
         Debug.LogError("quitting editor");
         UnityEditor.EditorApplication.isPlaying = false;
+    }*/
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     //reduce remaining medium and large pawn count
@@ -392,6 +397,14 @@ public class GameManager : MonoBehaviour
         {
             totaOrangeLarge--;
         }
+    }
+
+    public void Deselect()
+    {
+        selectedPawn.GetComponent<Image>().color = _originalColor;
+        selectedPawn = null;
+        canMovePawn = false;
+        canSelectPawn = true;
     }
 
 }
